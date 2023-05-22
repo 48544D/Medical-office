@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('email')->unique();
-            $table->string('mediclHistory');
+            $table->string('medicalHistory');
             $table->string('insuranceInfo');
             $table->timestamps();
         });
