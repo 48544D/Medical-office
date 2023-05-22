@@ -21,8 +21,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'password',
+        'role',
     ];
 
     /**
@@ -43,4 +43,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // relationship with the message model
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

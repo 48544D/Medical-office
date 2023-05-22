@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phoneNumber');
             $table->string('email')->unique();
             $table->string('mediclHistory');
-            $table->string('insuranceName');
+            $table->string('insuranceInfo');
             $table->timestamps();
         });
     }
