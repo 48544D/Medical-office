@@ -25,7 +25,11 @@ class MedicalRecordRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'record_date' => 'required',
+            'test_results'=> 'required',
+            'diagnosis' => 'required',
+            'treatment' => 'required',
+            'prescription' => 'required',
         ];
     }
 

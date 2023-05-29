@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PatientController;
 
 // --------------------------
 // Custom Backpack Routes
@@ -23,4 +24,6 @@ Route::group([
     Route::crud('message', 'MessageCrudController');
     Route::crud('patient', 'PatientCrudController');
     Route::crud('schedule', 'ScheduleCrudController');
+    // route for profile
+    Route::get('patient/{id}/profile', [PatientController::class, 'profile'])->name('profile');
 }); // this should be the absolute last line of this file

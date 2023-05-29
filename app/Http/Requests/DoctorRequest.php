@@ -25,7 +25,11 @@ class DoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'firstName' => 'required|min:3|max:255',
+            'lastName' => 'required|min:3|max:255',
+            'speciality' => 'required|min:5',
+            'phoneNumber' => 'required|numeric',
+            'email' => 'required|email'
         ];
     }
 

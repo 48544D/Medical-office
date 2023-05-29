@@ -25,8 +25,6 @@ class AppointementRequest extends FormRequest
     public function rules()
     {
         return [
-            'patient' => 'required',
-            'doctor' => 'required',
             'appointement_date_time' => 'required',
             'status' => 'required',
             'reason_for_appointement' => 'required|min:5',

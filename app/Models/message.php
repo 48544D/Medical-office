@@ -20,12 +20,12 @@ class message extends Model
     // relationship with the user model
     public function receiver()
     {
-        return $this->belongsTo(User::class, 'receiver_id');
+        return $this->belongsTo(doctor::class, 'receiver_id');
     }
 
     // relationship with the user model
     public function sender()
     {
-        return $this->belongsTo(User::class, 'sender_id');
+        return $this->belongsTo(patient::class, 'sender_id');
     }
 }

@@ -25,7 +25,8 @@ class ScheduleRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'date_time' => 'required',
+            'availibility' => 'required',
         ];
     }
 

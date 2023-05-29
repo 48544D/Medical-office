@@ -39,8 +39,8 @@ class AppointementCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('patient_id');
-        CRUD::column('doctor_id');
+        CRUD::column('patient_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::column('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::column('appointement_date_time');
         CRUD::column('status');
         CRUD::column('reason_for_appointement');
@@ -63,10 +63,10 @@ class AppointementCrudController extends CrudController
     {
         CRUD::setValidation(AppointementRequest::class);
 
-        CRUD::field('patient_id');
-        CRUD::field('doctor_id');
+        CRUD::field('patient_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::field('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::field('appointement_date_time');
-        CRUD::field('status');
+        CRUD::field('status')->type('enum');
         CRUD::field('reason_for_appointement');
         CRUD::field('notes');
 

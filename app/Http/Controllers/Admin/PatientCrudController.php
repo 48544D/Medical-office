@@ -29,6 +29,10 @@ class PatientCrudController extends CrudController
         CRUD::setModel(\App\Models\Patient::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/patient');
         CRUD::setEntityNameStrings('patient', 'patients');
+        // profile button
+        $this->crud->addButtonFromView('line', 'profile', 'profile', 'beginning');
+        // remove preview button
+        $this->crud->removeButton('preview');
     }
 
     /**
