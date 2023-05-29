@@ -25,7 +25,15 @@ class PatientRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'firstName' => 'required|min:5|max:255',
+            'lastName' => 'required|min:5|max:255',
+            'birthDate' => 'required',
+            'gender' => 'required',
+            'phoneNumber' => 'required|min:8|max:255',
+            'email' => 'required|email',
+            'medicalHistory' => 'required|min:5',
+            'insuranceInfo' => 'required|min:5',
+
         ];
     }
 

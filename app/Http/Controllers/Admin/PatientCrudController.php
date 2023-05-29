@@ -45,7 +45,7 @@ class PatientCrudController extends CrudController
         CRUD::column('gender');
         CRUD::column('phoneNumber');
         CRUD::column('email');
-        CRUD::column('mediclHistory');
+        CRUD::column('medicalHistory');
         CRUD::column('insuranceInfo');
 
         /**
@@ -68,10 +68,10 @@ class PatientCrudController extends CrudController
         CRUD::field('firstName');
         CRUD::field('lastName');
         CRUD::field('birthDate');
-        CRUD::field('gender');
+        CRUD::field('gender')->type('enum');
         CRUD::field('phoneNumber');
         CRUD::field('email');
-        CRUD::field('mediclHistory');
+        CRUD::field('medicalHistory')->type('textarea');
         CRUD::field('insuranceInfo');
 
         /**

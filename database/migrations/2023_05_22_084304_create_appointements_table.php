@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->dateTime('appointement_date_time');
             $table->integer('status');
-            $table->string('reason_for_appointment');
+            $table->string('reason_for_appointement');
             $table->string('notes');
             $table->timestamps();
         });

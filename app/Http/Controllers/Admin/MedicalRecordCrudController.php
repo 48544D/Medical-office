@@ -39,8 +39,8 @@ class MedicalRecordCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('patient_id');
-        CRUD::column('doctor_id');
+        CRUD::column('patient_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::column('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::column('record_date');
         CRUD::column('test_results');
         CRUD::column('diagnosis');
@@ -64,8 +64,8 @@ class MedicalRecordCrudController extends CrudController
     {
         CRUD::setValidation(MedicalRecordRequest::class);
 
-        CRUD::field('patient_id');
-        CRUD::field('doctor_id');
+        CRUD::field('patient_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::field('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::field('record_date');
         CRUD::field('test_results');
         CRUD::field('diagnosis');
