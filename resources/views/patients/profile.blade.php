@@ -148,6 +148,61 @@
                 </div>
               </div>
 
+              <div class="card mb-3">
+                <div class="card-header">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <h4 class="mb-2">Medical Records</h4>
+                  </div>
+                </div>
+
+                <div class="card-body py-0" style="max-height: 21vw; overflow: auto;">
+                  @if ($patient->medicalRecords()->count() == 0)
+                    <div class="d-flex justify-content-center align-items-center p-4">
+                      <h6 class="text-secondary mb-0">This patient has no medical records</h6>
+                    </div>
+                  @else
+                    <div class="row bg-secondary p-2 mb-3 text-light sticky-top">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Record Date</h6>
+                      </div>
+
+                      <div class="col-sm-5">
+                        <h6 class="mb-0">test_results</h6>
+                      </div>
+                      
+                      <div class="col-sm-2 text-truncate text-center">
+                        <h6 class="mb-0">Doctor name</h6>
+                      </div>
+
+                      <div class="col-sm-2">
+                        <h6 class="mb-0">Action</h6>
+                      </div>
+                    </div>
+                  @endif
+
+                  @foreach ($patient->medicalRecords as $medicalRecord)
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">{{ $medicalRecord->record_date }}</h6>
+                      </div>
+
+                      <div class="col-sm-5 text-truncate text-center">
+                        {{ $medicalRecord->test_results }}
+                    </div>
+                      
+                      <div class="col-sm-2 text-truncate text-center">
+                          {{ $medicalRecord->doctor->firstName }}
+                      </div>
+
+                      <div class="col-sm-2">
+                          <a href="/medicalRecords/{{ $medicalRecord->id }}/show"><i class="las la-eye"></i> View</a>
+                      </div>
+                    </div>
+                    <hr>
+                  @endforeach
+                </div>
+              </div>
+
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">

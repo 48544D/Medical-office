@@ -33,4 +33,10 @@ class patient extends Model
     {
         return $this->hasMany(Appointement::class);
     }
+
+    // relationship with the medical record model
+    public function medicalRecords()
+    {
+        return $this->hasMany(MedicalRecord::class);
+    }
 }
