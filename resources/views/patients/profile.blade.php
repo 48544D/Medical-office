@@ -12,8 +12,13 @@
 
     <!-- Line Awesome -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    {{-- custom css --}}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+
     <title>{{ $patient->firstName }} Profile</title>
 </head>
+
 <body>
     <div class="container">
         <div class="main-body">
@@ -76,56 +81,56 @@
                 <div class="col-md-8">
                   <div class="card mb-3">
                     <div class="card-body">
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Full Name</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          Kenneth Valdez
-                        </div>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <h4 class="mb-2">Appointements</h4>
                       </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Email</h6>
+
+                      @if ($patient->appointements()->count() == 0)
+                        <h6 class="text-secondary mb-0">This patient has no appointements</h6>
+                      @else
+                        <div class="row bg-secondary p-2 mb-3 text-light">
+                          <div class="col-sm-5">
+                            <h6 class="mb-0">Date & time</h6>
+                          </div>
+
+                          <div class="col-sm-2">
+                            <h6 class="mb-0">Status</h6>
+                          </div>
+                          
+                          <div class="col-sm-3 text-truncate text-center">
+                            <h6 class="mb-0">Doctor name</h6>
+                          </div>
+
+                          <div class="col-sm-2">
+                            <h6 class="mb-0">Action</h6>
+                          </div>
                         </div>
-                        <div class="col-sm-9 text-secondary">
-                          fip@jukmuh.al
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Phone</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          (239) 816-9029
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Mobile</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          (320) 380-4539
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Address</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          Bay Area, San Francisco, CA
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                        </div>
-                      </div>
+                      @endif
+
+                      @foreach ($patient->appointements as $appointement)
+                        <div class="row">
+                          <div class="col-sm-5">
+                            <h6 class="mb-0">{{ $appointement->appointement_date_time }}</h6>
+                          </div>
+
+                          @if ($appointement->status == 'pending')
+                                <div class="col-sm-2 badge badge-warning"> {{ $appointement->status }} </div>
+                            @elseif ($appointement->status == 'confirmed')
+                                <div class="col-sm-2 badge badge-success"> {{ $appointement->status }} </div>
+                            @else
+                                <div class="col-sm-2 badge badge-danger">{{ $appointement->status }} </div>
+                            @endif
+                          
+                            <div class="col-sm-3 text-truncate text-center">
+                                {{ $appointement->doctor->firstName }}
+                            </div>
+
+                            <div class="col-sm-2">
+                                <a href="/appointement/{{ $appointement->id }}/show"><i class="las la-eye"></i> View</a>
+                            </div>
+                          </div>
+                        <hr>
+                      @endforeach
                     </div>
                   </div>
     
