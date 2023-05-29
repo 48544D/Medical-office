@@ -39,9 +39,9 @@ class ScheduleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('doctor_id');
+        CRUD::column('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::column('date_time');
-        CRUD::column('availibility');
+        CRUD::column('availibility')->type('enum')->options([true => 'available', false => 'not available']);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,9 +60,10 @@ class ScheduleCrudController extends CrudController
     {
         CRUD::setValidation(ScheduleRequest::class);
 
-        CRUD::field('doctor_id');
+        CRUD::field('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::field('date_time');
-        CRUD::field('availibility');
+        // CRUD::field('availibility');
+        CRUD::field('availibility')->type('enum')->options([true => 'available', false => 'not available']);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

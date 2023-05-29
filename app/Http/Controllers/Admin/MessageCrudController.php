@@ -39,8 +39,8 @@ class MessageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('sender_id');
-        CRUD::column('receiver_id');
+        CRUD::column('sender_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::column('receiver_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::column('message');
 
         /**
@@ -60,8 +60,9 @@ class MessageCrudController extends CrudController
     {
         CRUD::setValidation(MessageRequest::class);
 
-        CRUD::field('sender_id');
-        CRUD::field('receiver_id');
+        // relationship with patient firstName
+        CRUD::field('sender_id')->type('enum')->options(\App\Models\Patient::all()->pluck('firstName', 'id')->toArray());
+        CRUD::field('receiver_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
         CRUD::field('message');
 
         /**
