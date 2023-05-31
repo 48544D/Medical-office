@@ -19,8 +19,8 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->string('phoneNumber');
             $table->string('email')->unique();
-            $table->string('medicalHistory');
-            $table->string('insuranceInfo');
+            $table->longText('medicalHistory');
+            $table->longText('insuranceInfo');
             $table->timestamps();
         });
     }

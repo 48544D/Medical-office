@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // seeder for appointment
-        \App\Models\appointement::factory(10)->create();
+        // \App\Models\appointement::factory(10)->create();
 
         // seeder for schedule
         // \App\Models\schedule::factory(10)->create();
