@@ -40,7 +40,16 @@ class ScheduleCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
-        CRUD::column('date_time');
+        $this->crud->addColumn([
+            'name' => 'work_days',
+            'label' => 'Work Days',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'work_hours',
+            'label' => 'Work Hours',
+            'type' => 'text',
+        ]);
         CRUD::column('availibility')->type('enum')->options([true => 'available', false => 'not available']);
 
         /**
@@ -61,8 +70,10 @@ class ScheduleCrudController extends CrudController
         CRUD::setValidation(ScheduleRequest::class);
 
         CRUD::field('doctor_id')->type('enum')->options(\App\Models\Doctor::all()->pluck('firstName', 'id')->toArray());
-        CRUD::field('date_time');
-        // CRUD::field('availibility');
+        CRUD::field('start_day')->type('enum')->options(['saturday' => 'saturday', 'sunday' => 'sunday', 'monday' => 'monday', 'tuesday' => 'tuesday', 'wednesday' => 'wednesday', 'thursday' => 'thursday', 'friday' => 'friday']);
+        CRUD::field('end_day')->type('enum')->options(['saturday' => 'saturday', 'sunday' => 'sunday', 'monday' => 'monday', 'tuesday' => 'tuesday', 'wednesday' => 'wednesday', 'thursday' => 'thursday', 'friday' => 'friday']);
+        CRUD::field('start_time')->type('time');
+        CRUD::field('end_time')->type('time');
         CRUD::field('availibility')->type('enum')->options([true => 'available', false => 'not available']);
 
         /**
