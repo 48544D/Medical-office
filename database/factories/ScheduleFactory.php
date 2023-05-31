@@ -19,8 +19,12 @@ class ScheduleFactory extends Factory
     {
         return [
             'doctor_id' => doctor::inRandomOrder()->first()->id,
-            'date_time' => $this->faker->dateTime,
+            'start_day' => $this->faker->randomElement(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']),
+            'end_day' => $this->faker->randomElement(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']),
+            'start_time' => $this->faker->time,
+            'end_time' => $this->faker->time,
             'availibility' => $this->faker->randomElement([true, false]),
+            'created_at' => $this->faker->randomElement(['2021-05-01', '2021-05-02', '2021-05-03', '2021-05-04', '2021-05-05', '2021-05-06', '2021-05-07']),
         ];
     }
 }

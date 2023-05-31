@@ -40,6 +40,7 @@
         'group_by_period' => 'day',
         'chart_type' => 'line',
         'chart_color' => '76, 132, 209',
+        'filter_days' => 30,
     ];
 
     $appointement_options = [
@@ -50,6 +51,7 @@
         'group_by_period' => 'day',
         'chart_type' => 'line',
         'chart_color' => '255, 195, 15',
+        'filter_days' => 30,
     ];
 
     $schedule_options = [
@@ -60,6 +62,7 @@
         'group_by_period' => 'day',
         'chart_type' => 'line',
         'chart_color' => '76, 189, 155',
+        'filter_days' => 30,
     ];
 
     // appointement per doctor chart

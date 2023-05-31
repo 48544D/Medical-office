@@ -25,6 +25,7 @@ class AppointementFactory extends Factory
             'status' => $this->faker->randomElement(['confirmed', 'cancelled']),
             'reason_for_appointement' => $this->faker->sentence,
             'notes' => $this->faker->text,
+            'created_at' => $this->faker->randomElement(['2021-05-01', '2021-05-02', '2021-05-03', '2021-05-04', '2021-05-05', '2021-05-06', '2021-05-07']),
         ];
     }
 }
