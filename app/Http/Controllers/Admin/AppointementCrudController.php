@@ -45,6 +45,12 @@ class AppointementCrudController extends CrudController
         CRUD::column('status');
         CRUD::column('reason_for_appointement');
         CRUD::column('notes');
+        // change the name of edit button to validate
+        // $this->crud->removeButton('update');
+        $this->crud->addButtonFromView('line', 'validate', 'validate', 'end');
+
+        // add button
+        // CRUD::addButtonFromView('line', 'add_appointement', 'add_appointement', 'end');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

@@ -22,8 +22,8 @@ class AppointementFactory extends Factory
             'patient_id' => patient::inRandomOrder()->first()->id,
             'doctor_id' => doctor::inRandomOrder()->first()->id,
             'appointement_date_time' => $this->faker->dateTime,
-            'status' => $this->faker->randomElement(['pending', 'confirmed', 'canceled']),
-            'reason_for_appointement' => $this->faker->text,
+            'status' => $this->faker->randomElement(['confirmed', 'cancelled']),
+            'reason_for_appointement' => $this->faker->sentence,
             'notes' => $this->faker->text,
         ];
     }

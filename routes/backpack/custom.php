@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 
@@ -26,4 +27,5 @@ Route::group([
     Route::crud('schedule', 'ScheduleCrudController');
     // route for profile
     Route::get('patient/{id}/profile', [PatientController::class, 'profile'])->name('profile');
+    Route::get('appointement/{id}/validate', [AppointementController::class, 'confirm'])->name('confirm');
 }); // this should be the absolute last line of this file
