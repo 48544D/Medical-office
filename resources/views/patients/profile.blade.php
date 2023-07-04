@@ -195,7 +195,7 @@
                       </div>
 
                       <div class="col-sm-2">
-                          <a href="/medicalRecords/{{ $medicalRecord->id }}/show"><i class="las la-eye"></i> View</a>
+                          <a href="/medical-record/{{ $medicalRecord->id }}/show"><i class="las la-eye"></i> View</a>
                       </div>
                     </div>
                     <hr>

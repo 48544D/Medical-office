@@ -33,7 +33,7 @@ class PatientRequest extends FormRequest
             'email' => 'required|email',
             'medicalHistory' => 'required|min:5',
             'insuranceInfo' => 'required|min:5',
-
+            'password' => 'required'
         ];
     }
 

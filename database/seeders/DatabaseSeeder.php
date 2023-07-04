@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\appointement::factory(10)->create();
 
         // seeder for schedule
-        \App\Models\schedule::factory(10)->create();
+        // \App\Models\schedule::factory(10)->create();
 
         // seeder for user
         // \App\Models\User::factory(1)->create();
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\doctor::factory(10)->create();
 
         // seeder for medical record
-        // \App\Models\MedicalRecord::factory(10)->create();
+        \App\Models\MedicalRecord::factory(10)->create();
 
         // seeder for message
         // \App\Models\message::factory(10)->create();

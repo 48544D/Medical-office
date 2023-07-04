@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('appointement_date_time');
             $table->enum('status', ['confirmed', 'cancelled']);
             $table->string('reason_for_appointement');
-            $table->longText('notes');
+            $table->longText('notes')->nullable();
             $table->timestamps();
         });
     }

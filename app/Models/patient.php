@@ -18,6 +18,7 @@ class patient extends Model
         'gender',
         'phoneNumber',
         'email',
+        'password',
         'medicalHistory',
         'insuranceInfo'
     ];

@@ -49,8 +49,6 @@ class PatientCrudController extends CrudController
         CRUD::column('gender');
         CRUD::column('phoneNumber');
         CRUD::column('email');
-        CRUD::column('medicalHistory');
-        CRUD::column('insuranceInfo');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -75,6 +73,7 @@ class PatientCrudController extends CrudController
         CRUD::field('gender')->type('enum');
         CRUD::field('phoneNumber');
         CRUD::field('email');
+        CRUD::field('password');
         CRUD::field('medicalHistory')->type('textarea');
         CRUD::field('insuranceInfo');
 
